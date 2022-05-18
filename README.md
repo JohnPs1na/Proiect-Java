@@ -11,7 +11,7 @@ Some Options:
 7) I can create a client/artist
 8) I can update a client/artist/event/ticket
 9) I can delete a client/artist/event/ticket
-10)I can view Information about clients/artists/events/tickets
+10.I can view Information about clients/artists/events/tickets
 
 # Implemented Classes
 ○ Person 
