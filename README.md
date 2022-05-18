@@ -12,3 +12,25 @@ Some Options:
 8) I can update a client/artist/event/ticket
 9) I can delete a client/artist/event/ticket
 10)I can view Information about clients/artists/events/tickets
+
+# Implemented Classes
+○ Person 
+  - Client + ClientService
+  - Artist + ArtistService
+  - PersonFactory
+  
+○ Event
+  - EventFactory + EventService
+  
+○ Ticket
+  - TicketFactory + TicketService
+  
+○ User
+
+Aditional:
+  - @FunctionalInterface - Service_Function
+  - Option_Function struct (that is used to instantiate an array of operations(Strings) with lambda functions)
+  - runMenu (which is the skelet for the menus, almost all services extend this class)
+  - AuditService 
+
+○ Main + MainService
