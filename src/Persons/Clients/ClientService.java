@@ -1,20 +1,19 @@
-package Persons.Clients;
+package persons.clients;
 
-import Events.Event;
-import Events.EventsService;
-import Persons.Artists.ArtistService;
-import Persons.Person;
-import Persons.PersonFactory;
-import Tickets.Ticket;
-import Tickets.TicketService;
-import Users.User;
-import option_function.option_function;
-import option_function.runMenu;
+import events.Event;
+import events.EventsService;
+import persons.Person;
+import persons.PersonFactory;
+import tickets.Ticket;
+import tickets.TicketService;
+import users.User;
+import option_function.OptionFunction;
+import option_function.RunMenu;
 
 import java.sql.*;
 import java.util.*;
 
-public class ClientService extends runMenu {
+public class ClientService extends RunMenu {
 
     static ClientService clientService_instance = null;
     private final HashMap<Integer,Person> clientList = new HashMap<>();
@@ -33,7 +32,7 @@ public class ClientService extends runMenu {
             e.printStackTrace();
         }
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Add Client",
                         ()-> {
                             Scanner in = new Scanner(System.in);
@@ -43,7 +42,7 @@ public class ClientService extends runMenu {
                             create((Client) client);
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Update Client",
                         ()-> {
                             for(Person client : clientList.values()){
@@ -59,7 +58,7 @@ public class ClientService extends runMenu {
                         }));
 
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Fill Balance",
                         ()-> {
                             Scanner in = new Scanner(System.in);
@@ -79,7 +78,7 @@ public class ClientService extends runMenu {
                             }
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Purchase Ticket",
                         ()-> {
                             TicketService ticketService = TicketService.getInstance();
@@ -114,7 +113,7 @@ public class ClientService extends runMenu {
                             }
                         }));
 
-        operations.add(new option_function(
+        operations.add(new OptionFunction(
                 "Delete Client",
                 ()-> {
                     for(Person client : clientList.values()){
@@ -137,7 +136,7 @@ public class ClientService extends runMenu {
                     }
                 }));
 
-        operations.add(new option_function(
+        operations.add(new OptionFunction(
                 "View Balance",
                 ()-> {
                     User user = User.getUserInstance();
@@ -148,7 +147,7 @@ public class ClientService extends runMenu {
                     }
                 }));
 
-        operations.add(new option_function(
+        operations.add(new OptionFunction(
                 "Get All Clients",
                 ()-> {
                     for(Person client : clientList.values()){

@@ -1,7 +1,6 @@
-package Persons.Clients;
+package persons.clients;
 
-import Persons.Person;
-import groovy.sql.Sql;
+import persons.Person;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

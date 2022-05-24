@@ -1,23 +1,18 @@
 
-import Events.Event;
-import Events.EventsService;
-import Persons.Artists.ArtistService;
-import Persons.Clients.Client;
-import Persons.Clients.ClientService;
-import Persons.Person;
-import Persons.PersonFactory;
-import Tickets.Ticket;
+import events.EventsService;
+import persons.artists.ArtistService;
+import persons.clients.ClientService;
+import persons.Person;
 
-import java.io.File;
 import java.sql.*;
 import java.util.*;
 
-import Tickets.TicketService;
-import Users.User;
+import tickets.TicketService;
+import users.User;
 import option_function.*;
 
 
-public class MainService extends runMenu{
+public class MainService extends RunMenu {
 
     static MainService MainService_instance = null;
 
@@ -34,28 +29,28 @@ public class MainService extends runMenu{
         ticketMenu = TicketService.getInstance();
 
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Open Artists Menu",
                         ()-> {
                             System.out.println("intru la artisti in menu");
                             artistMenu.run();
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Open Clients Menu",
                         ()-> {
                             System.out.println("intru la Clienti in menu");
                             clientMenu.run();
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Open Tickets Menu",
                         ()-> {
                             System.out.println("intru la Bilete in menu");
                             ticketMenu.run();
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Open Events Menu",
                         ()-> {
                             System.out.println("intru la Events in menu");
@@ -63,7 +58,7 @@ public class MainService extends runMenu{
                         }));
 
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "REGISTER",
                         () -> {
                             Scanner in = new Scanner(System.in);
@@ -108,7 +103,7 @@ public class MainService extends runMenu{
                             }
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "LOG IN",
                         () -> {
                             Scanner in = new Scanner(System.in);
@@ -144,7 +139,7 @@ public class MainService extends runMenu{
                         }));
 
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "LOG OUT",
                         ()-> {
                             System.out.println("Logged out");

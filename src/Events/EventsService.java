@@ -1,19 +1,15 @@
-package Events;
+package events;
 
-import Persons.Clients.ClientService;
-import Persons.Person;
-import Tickets.Ticket;
-import Tickets.TicketService;
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
-import option_function.option_function;
-import option_function.runMenu;
+import tickets.TicketService;
+import option_function.OptionFunction;
+import option_function.RunMenu;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
 
-public class EventsService extends runMenu {
+public class EventsService extends RunMenu {
 
     private static EventsService eventsService_instance = null;
     private final HashMap<Integer,Event> eventList = new HashMap<>();
@@ -32,7 +28,7 @@ public class EventsService extends runMenu {
         }
 
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Publish Event",
                         ()-> {
                             if (Objects.equals(user.getLabel(), "artist")) {
@@ -51,7 +47,7 @@ public class EventsService extends runMenu {
                             }
                         }));
 
-        operations.add(new option_function(
+        operations.add(new OptionFunction(
                 "Update Event",
                 ()-> {
                     for(Event event : eventList.values()){
@@ -63,7 +59,7 @@ public class EventsService extends runMenu {
                     updateEvent(id);
                 }));
 
-        operations.add(new option_function(
+        operations.add(new OptionFunction(
                 "Delete an event By id",
                 ()-> {
                     if (Objects.equals(user.getLabel(), "artist")) {
@@ -89,7 +85,7 @@ public class EventsService extends runMenu {
                         System.out.println("Clients dont have permision to delete events");
                     }
                 }));
-        operations.add(new option_function(
+        operations.add(new OptionFunction(
                 "Get All Events",
                 ()-> {
                     for(Event event : eventList.values()){

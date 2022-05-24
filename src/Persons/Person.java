@@ -1,4 +1,4 @@
-package Persons;
+package persons;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

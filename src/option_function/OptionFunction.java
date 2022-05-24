@@ -1,11 +1,11 @@
 package option_function;
 
-public class option_function{
+public class OptionFunction {
 
     private final String option;
     private final Service_Function function;
 
-    public option_function(String option, Service_Function function){
+    public OptionFunction(String option, Service_Function function){
         this.option = option;
         this.function = function;
     }

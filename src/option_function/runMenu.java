@@ -1,24 +1,22 @@
 package option_function;
 
-import Users.User;
+import users.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 
-public class runMenu{
+public class RunMenu {
 
     protected ArrayList operations = new ArrayList();
     protected static Connection connection;
     protected static User user = null;
     protected static AuditService auditService = null;
 
-    public runMenu(){
+    public RunMenu(){
         try {
             auditService = AuditService.getInstance();
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/proiect_pao", "root", "qwe123456");
@@ -40,7 +38,7 @@ public class runMenu{
                 System.out.println("==================================");
                 System.out.println("Chose your operation");
                 for(int i = 0;i<operations.size();i++){
-                    option_function of = (option_function) operations.get(i);
+                    OptionFunction of = (OptionFunction) operations.get(i);
                     System.out.println(Integer.toString(i+1) + ")" + of.getOption());
                 }
                 System.out.println(Integer.toString(operations.size() + 1) + ")" + "Close");
@@ -58,7 +56,7 @@ public class runMenu{
                     continue;
                 }
 
-                option_function final_of = (option_function) operations.get(op - 1);
+                OptionFunction final_of = (OptionFunction) operations.get(op - 1);
                 if(User.getUserInstance() != null || Objects.equals(final_of.getOption(), "LOG IN") || Objects.equals(final_of.getOption(), "REGISTER")) {
                     final_of.getFunction().function();
                     if (this.getClass().toString().equals("class MainService")){

@@ -1,6 +1,6 @@
-package Persons.Artists;
+package persons.artists;
 
-import Persons.Person;
+import persons.Person;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

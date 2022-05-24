@@ -1,9 +1,7 @@
-package Persons.Artists;
+package persons.artists;
 
-import Persons.Clients.Client;
-import Persons.Person;
-import Persons.PersonFactory;
-import Tickets.Ticket;
+import persons.Person;
+import persons.PersonFactory;
 import option_function.*;
 
 import java.sql.PreparedStatement;
@@ -13,9 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
-import java.util.logging.LoggingPermission;
 
-public class ArtistService extends runMenu {
+public class ArtistService extends RunMenu {
 
     static ArtistService artistService_instance = null;
     private final List<Person> artistList = new ArrayList<>();
@@ -32,7 +29,7 @@ public class ArtistService extends runMenu {
             e.printStackTrace();
         }
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Add artist",
                         () -> {
                             Scanner in = new Scanner(System.in);
@@ -42,7 +39,7 @@ public class ArtistService extends runMenu {
                             create(a);
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Update Artist",
                         () -> {
                             for (Person artist : artistList) {
@@ -58,7 +55,7 @@ public class ArtistService extends runMenu {
                             updateArtist(id);
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Delete artist",
                         () -> {
                             for (Person artist : artistList) {
@@ -83,7 +80,7 @@ public class ArtistService extends runMenu {
                             }
                         }));
 
-        operations.add(new option_function(
+        operations.add(new OptionFunction(
                 "Get All Artists",
                 () -> {
                     for (Person artist : artistList) {

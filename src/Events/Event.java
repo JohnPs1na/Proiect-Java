@@ -1,4 +1,4 @@
-package Events;
+package events;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

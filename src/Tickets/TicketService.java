@@ -1,18 +1,14 @@
-package Tickets;
+package tickets;
 
-import Persons.Clients.Client;
-import com.sun.jdi.event.ExceptionEvent;
-import option_function.option_function;
-import option_function.runMenu;
+import option_function.OptionFunction;
+import option_function.RunMenu;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-public class TicketService extends runMenu {
+public class TicketService extends RunMenu {
     private static TicketService ticketService_instance = null;
     private final HashMap<Integer,Ticket> ticketList = new HashMap<>();
     private final TicketFactory ticketFactory = new TicketFactory();
@@ -31,7 +27,7 @@ public class TicketService extends runMenu {
         }
 
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Add Ticket",
                         ()-> {
                             Scanner in = new Scanner(System.in);
@@ -39,7 +35,7 @@ public class TicketService extends runMenu {
                             createTicket(t);
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Update Ticket",
                         ()-> {
                             for(Ticket ticket : ticketList.values()){
@@ -51,7 +47,7 @@ public class TicketService extends runMenu {
                             updateTicket(id);
                         }));
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Delete ticket by id",
                         ()-> {
                             for(Ticket ticket : ticketList.values()){
@@ -71,7 +67,7 @@ public class TicketService extends runMenu {
                         }));
 
         operations.add(
-                new option_function(
+                new OptionFunction(
                         "Search",
                         () -> {
                             Scanner in  = new Scanner(System.in);
@@ -84,7 +80,7 @@ public class TicketService extends runMenu {
                         }
                 )
         );
-        operations.add(new option_function(
+        operations.add(new OptionFunction(
                 "Get All Tickets",
                 ()-> {
                     for(Ticket ticket : ticketList.values()){
