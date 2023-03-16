@@ -31,7 +31,7 @@ Some Options:
 Aditional:
   - @FunctionalInterface - Service_Function
   - Option_Function struct (that is used to instantiate an array of operations(Strings) with lambda functions)
-  - runMenu (which is the skelet for the menus, almost all services extend this class)
+  - runMenu (which is the skeleton for the menus, almost all services extend this class)
   - AuditService 
 
 ○ Main + MainService
